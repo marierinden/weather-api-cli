@@ -1,0 +1,17 @@
+{
+    "name": "marie/weather-app",
+    "autoload": {
+        "psr-4": {
+            "Marie\\WeatherApp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "marie",
+            "email": "marie@shoppingnorge.no"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    }
+}
