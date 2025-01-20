@@ -13,7 +13,8 @@ class AstronomyService implements ServiceInterface
     private const string BASE_URL = 'https://api.weatherapi.com/v1';
 
     public function __construct(
-        private readonly Client $client
+        private readonly Client $client,
+        private readonly string $apiKey
     ) {
     }
 
@@ -24,9 +25,10 @@ class AstronomyService implements ServiceInterface
      */
     public function request(array $params = []): ResponseInterface
     {
+        $params = array_merge($params, ['key' => $this->apiKey]);
         $endpoint = sprintf('%s%s',self::BASE_URL, '/astronomy.json');
         return $this->client->get($endpoint, [
-            'query' => $params
+            'query' => $params,
         ]);
     }
 
